@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>delazona</title>
+
+  <!-- JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+
+<!--===============================================================================================-->
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg')}}" sizes="any"/>
+<!--===============================================================================================-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css')}}">
+<!--===============================================================================================-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='small-business.css')}}">
+<!--===============================================================================================-->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap');
+    </style>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+    </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#"><img src="{{ url_for('static', filename='logo.svg')}}" alt="logo" style="width:10em"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li> -->
+          <!-- <li class="nav-item">
+            <button type="button" class="btn btn-success">+ Send event</button>
+          </li> -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container container-results">
+
+    <br>
+    <h1>{{product_name}}</h1>
+    <h3 class="info">Podràs trobar <b>{{product_name}}</b> en aquestes botigues de la zona.</h3>
+    <!-- Content Row -->
+    <!-- <div class="container"> -->
+    <div id="hbs1" class="row flex-nowrap" style="overflow-x:scroll;">
+
+      <!-- <script id="template-hbs1" style="margin-bottom: 3em;" type="text/x-handlebars-template"> -->
+        {% for result in results %}
+          <div class="col-sm-3 mb-5" style="height:max-content">
+            <div class="card card-live border-0 shadow rounded-lg text-center">
+              <div class="card-body">
+                <h5 class="card-title">{{result.name}}</h5>
+                <p class="card-address">{{result.address}}</p>
+                <a href="{{result.url}}" target="_blank" class="btn btn-primary btn-sm">Veure</a>
+                <a href="{{result.address_url}}" target="_blank" class="btn btn-secondary btn-sm">Anar-hi</a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+      <!-- </script> -->
+
+    </div><!-- CARDS DIV -->
+    
+    {% if nearby %}
+    <h1>{{category}}</h1>
+    <h3 class="info">A la teva zona hi ha altres comerços en la categoria de <b>{{category}}</b> on potser trobaries <b>{{product_name}}</b>.</h3>
+    <!-- Content Row -->
+    <!-- <div class="container"> -->
+    <div id="hbs1" class="row flex-nowrap" style="overflow-x:scroll;">
+
+      <!-- <script id="template-hbs1" style="margin-bottom: 3em;" type="text/x-handlebars-template"> -->
+        {% for shop in nearby %}
+          <div class="col-sm-3 mb-5" style="height:max-content">
+            <div class="card card-live border-0 shadow rounded-lg text-center">
+              <div class="card-body">
+                <h5 class="card-title">{{shop.name}}</h5>
+                <p class="card-address">{{shop.address}}</p>
+                <a href="{{shop.url}}" target="_blank" class="btn btn-primary btn-sm">Veure</a>
+                <a href="{{shop.address_url}}" target="_blank" class="btn btn-secondary btn-sm">Anar-hi</a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+      <!-- </script> -->
+
+    </div><!-- CARDS DIV -->
+    {% endif %}
+    <h4 class="info" style="padding-bottom: 0px;">Esperem que gaudeixis comprant als comerços de la teva zona!</h4>
+
+  </div> <!-- /.container -->
+
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; delazona.cat</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+<!--===============================================================================================-->
+    <link rel="icon" type="image/ico" href="{{ url_for('static', filename='favicon.ico')}}"/>
+<!--===============================================================================================-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='small-business.css')}}">
+<!--===============================================================================================-->
+    
+  <!-- Bootstrap core JavaScript -->
+  <script src="{{ url_for('static', filename='main.js')}}"></script>
+  <script src="{{ url_for('static', filename='bootstrap.bundle.min.js')}}"></script>
+  <script src="{{ url_for('static', filename='jquery.min.js')}}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>delazona</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	  <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg')}}" sizes="any"/>
+<!--===============================================================================================-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css')}}">
+<!--===============================================================================================-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='util.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css')}}">
+<!--===============================================================================================-->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap');
+    </style>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+    </style>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+    </style>
+</head>
+<body>
+	<div class="bg-contact3">
+		<div class="container-contact3">
+			<div class="wrap-contact3">
+                <a href="{{ url_for('main')}}" class="text-black h2 mb-0"><img src="/static/images/logo.svg" style="max-height:8.5rem;" alt="logo"></a>
+                    <br>
+                    <br>
+                    <span class="contact3-form-subtitle">
+						Emplena el formulari següent amb les dades del teu comerç i passaràs a formar part de la base de dades de Delazona.
+					</span>
+                    
+                    <form id="form" method="POST">
+                      
+                        
+                      <div class="form-group">
+                        <label for="name">Nom comerç</label>
+                        <input name="name" type="text" class="form-control" id="name" aria-describedby="name" placeholder="Nom comerç">
+                      </div>
+                        
+                    
+                      <div class="form-group">
+                        <label for="website">Pàgina web</label>
+                        <input name="website" type="url" class="form-control" id="website" aria-describedby="website" placeholder="Pàgina web">
+                      </div>
+                      
+                      <div class="form-group">
+                        <label for="phone">Telèfon de contacte</label>
+                        <input name="phone" type="phone" class="form-control" id="phone" aria-describedby="phone" placeholder="Telèfon de contacte">
+                      </div>
+                      
+                      <div class="form-group">
+                        <div class="row">
+                          <div class="col">
+                            <label for="street">Adreça</label>
+                            <input name="street" type="text" class="form-control" id="street" aria-describedby="address" placeholder="Adreça">
+                          </div>
+                          <div class="col-3">
+                            <label for="number">Número</label>
+                            <input name="number" type="digit" class="form-control" id="number" aria-describedby="number" placeholder="Núm.">
+                          </div>
+                        </div>
+                      </div>
+                        
+                      <div class="form-group">
+                          <div class="row">
+                              <div class="col">
+                                <label for="city">Ciutat</label>
+                                <input name="city" type="text" class="form-control" id="city" aria-describedby="city" placeholder="Ciutat">
+                              </div>
+                              <div class="col-4">
+                                <label for="postcode">CP</label>
+                                <input name="postcode" type="digit" class="form-control" id="postcode" aria-describedby="postcode" placeholder="CP">
+                              </div>
+                          </div>
+                      </div>
+                        
+                      <div class="form-group">
+                        <label for="timezone">Quina de les següents categories descriu millor la vostra activitat?</label>
+                        <select name="category" type="text" class="form-control" id="category" aria-describedby="category">
+                            <option>Cine, TV i Música</option>
+                            <option>Electrònica</option>
+                            <option>Informàtica i Oficina</option>
+                            <option>Videojocs</option>
+                            <option>Joguines i Bebè</option>
+                            <option>Llar, Jardí, Bricolatge i Mascotes</option>
+                            <option>Alimentació i Begudes</option>
+                            <option>Bellesa i Salut</option>
+                            <option>Moda</option>
+                            <option>Esports i Aire Lliure</option>
+                            <option>Cotxe i Moto</option>
+                            <option>Indústria, Empreses i Ciència</option>
+                        </select>
+                      </div>
+
+                      <div class="form-group">
+                          <div class="form-check form-check">
+                            <label>Marqueu la següent casella si feu enviaments a domicili.</label>
+                            <br>
+                            <input name="delivery" type="checkbox" class="form-check-input" id="delivery">
+                            <label class="form-check-label" for="delivery">Sí, fem enviaments a domicili.</label>
+                          </div>
+                      </div>
+                        
+                      <button type="submit" class="btn btn-primary">Registrar informació comerç</button>
+                        
+                    </form>
+                </div>
+			</div>
+		</div>
+
+<script src="{{ url_for('static', filename='main.js')}}"></script>
+  <script src="{{ url_for('static', filename='bootstrap.bundle.min.js')}}"></script>
+  <script src="{{ url_for('static', filename='jquery.min.js')}}"></script>
+    
+</body>
+</html>
